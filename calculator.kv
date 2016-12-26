@@ -4,10 +4,11 @@
 <CalcGrid>:
 	id:calculator
 	display:entry
-	rows:5
+	rows:8
 	spacing:10
 	padding:10
 	BoxLayout:
+		size_hint_y:.5
 		TextInput:
 			id:entry
 			font_size:20
@@ -28,6 +29,10 @@
 		CustButton:
 			text:'+'
 			on_press: entry.text+=self.text
+		CustButton:
+			text:'e'
+			on_press: entry.text+=self.text
+		
 	BoxLayout:
 		spacing:10
 		CustButton:
@@ -42,6 +47,10 @@
 		CustButton:
 			text:'-'
 			on_press: entry.text+=self.text
+		CustButton:
+			text:'pi'
+			on_press: entry.text+=self.text
+		
 	BoxLayout:
 		spacing:10
 		CustButton:
@@ -56,6 +65,10 @@
 		CustButton:
 			text:'*'
 			on_press: entry.text+=self.text
+		CustButton:
+			text:'log'
+			on_press: entry.text+=self.text+" "
+		
 	BoxLayout:
 		spacing:10
 		CustButton:
@@ -70,3 +83,37 @@
 		CustButton:
 			text:'/'
 			on_press: entry.text+=self.text
+		CustButton:
+			text:')'
+			on_press: entry.text+=self.text+" "
+	BoxLayout:
+		spacing:10
+		CustButton:
+			text:'sin'
+			on_press: entry.text+=self.text+"("
+		CustButton:
+			text:'cos'
+			on_press: entry.text+=self.text+"("
+		CustButton:
+			text:'tan'
+			on_press: entry.text+=self.text+"("
+		Button:
+			markup:True
+			font_size:30
+			text:"[sup]"+"o"+"[/sup]"
+			on_press:mode='degress' if mode=='radians' else mode=='radians'
+	BoxLayout:
+		spacing:10
+		CustButton:
+			text:'cosec'
+			on_press: entry.text+=self.text+"("
+		CustButton:
+			text:'sec'
+			on_press: entry.text+=self.text+"("
+		CustButton:
+			text:'cot'
+			on_press: entry.text+=self.text+"("
+		CustButton:
+			text:'rad'
+			on_press:calculator.angles(radians,entry.text)
+	
